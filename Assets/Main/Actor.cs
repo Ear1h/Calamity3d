@@ -4,7 +4,7 @@ using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Actor: MonoBehaviour
+public class Actor: Thinker, IDamageable
 {
     private int _health;
 
@@ -101,12 +101,18 @@ public class Actor: MonoBehaviour
         return false;
     }
 
-    public virtual int DamageActor(int damage)
+    public virtual void KillActor(GameObject inflictor, Actor source)
+    {
+
+    }
+
+    public virtual int DamageActor(int damage, Actor source, GameObject inflictor)
     {
         Health -= damage;
-        if (Health < 0)
+        if (Health <= 0)
         {
             Health = 0;
+            KillActor(inflictor, source);
         }
 
         OnHealthChanged?.Invoke(Health);

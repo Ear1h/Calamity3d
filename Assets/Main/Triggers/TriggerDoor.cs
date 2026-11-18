@@ -1,19 +1,18 @@
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
 
 public class DoorTrigger : MonoBehaviour
 {
     [SerializeField]
     private DoorController Door;
 
+    private DoorControllerInfo Info;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<CharacterController>(out CharacterController controller))
         {
-            if (!Door.isDoorOpen)
-            {
-                Door.Open(other.transform.position);
-            }
+            Door.SetRange(true);
+            Door.DoorTouchTrigger(other);
         }
     }
 
@@ -21,10 +20,9 @@ public class DoorTrigger : MonoBehaviour
     {
         if (other.TryGetComponent<CharacterController>(out CharacterController controller))
         {
-            if (Door.isDoorOpen)
-            {
-                Door.Close();
-            }
+            Door.SetRange(false);
+            Door.DoorTouchTrigger(other);
         }
     }
-}
+} 
+

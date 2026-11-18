@@ -21,9 +21,6 @@ public class MainInventory : Actor
         AlwaysPickup = 1 << 0,
     }
 
-
-
-    [SerializeField] protected PickupMessageUI PickupMessageUI;
     protected string PickupMessage;
     
     protected float  PickupMessageDelay;
@@ -42,13 +39,11 @@ public class MainInventory : Actor
     [SerializeField] protected ItemFlagsPublic flags;
     protected ItemFlagsInternal intFlags;
 
-    
-
-    public virtual string StringMessage()
+    protected virtual string StringMessage()
     {
-        if (PickupMessageUI != null)
+        if (PickupMessageUI.Instance != null)
         {
-            PickupMessageUI.ShowMessage(
+            PickupMessageUI.Instance.ShowMessage(
                 PickupMessage,
                 PickupMessageDelay
             );

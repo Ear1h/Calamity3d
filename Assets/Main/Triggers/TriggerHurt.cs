@@ -18,12 +18,6 @@ public class TriggerHurt : TriggerCore
         {
             return false;
         }
-        PlayerPawn player = toucher.GetComponent<PlayerPawn>();
-
-        if (player == null)
-        {
-            return false;
-        }
 
         if (Time.time < nextDamage)
         {
@@ -33,12 +27,12 @@ public class TriggerHurt : TriggerCore
         nextDamage = Time.time + DamageRate;
         if (DamageCount > 0)
         {
-            player.DamageActor(DamageCount);
+            toucher.DamageActor(DamageCount, null, null);
         }
 
         else
         {
-            player.GiveBody(DamageCount, 0);
+            toucher.GiveBody(DamageCount, 0);
         }
 
         return true;

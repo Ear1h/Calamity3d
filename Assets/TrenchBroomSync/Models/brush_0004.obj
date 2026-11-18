@@ -1,0 +1,51 @@
+mtllib brush_0004.mtl
+# vertices
+v -64 16 160
+v -64 16 176
+v -64 160 176
+v -64 160 160
+v 64 160 176
+v 64 16 176
+v 64 16 160
+v 64 160 160
+
+# texture coordinates
+vt 160 16
+vt 176 16
+vt 176 160
+vt 160 160
+vt 64 160
+vt -64 160
+vt -64 16
+vt 64 16
+vt -64 -176
+vt 64 -176
+vt 64 -160
+vt -64 -160
+vt -160 160
+vt -176 160
+vt -176 16
+vt -160 16
+
+# normals
+vn -1 0 -0
+vn 0 0 1
+vn 0 -1 -0
+vn 0 1 -0
+vn 0 0 -1
+vn 1 0 -0
+
+o entity0_brush0
+usemtl __TB_empty
+f  1/1/1  2/2/1  3/3/1  4/4/1
+usemtl __TB_empty
+f  5/5/2  3/6/2  2/7/2  6/8/2
+usemtl __TB_empty
+f  6/9/3  2/10/3  1/11/3  7/12/3
+usemtl __TB_empty
+f  8/11/4  4/12/4  3/9/4  5/10/4
+usemtl __TB_empty
+f  7/7/5  1/8/5  4/5/5  8/6/5
+usemtl __TB_empty
+f  8/13/6  5/14/6  6/15/6  7/16/6
+

@@ -20,15 +20,12 @@ public class TriggerJump : TriggerCore
             return false;
         }
 
-        PlayerMovement movement = player.GetComponent<PlayerMovement>();
-
-        if (movement == null)
+        if (player.Jump(PowerJump))
         {
-            return false;
+            return true;
         }
+            
 
-        movement.Jump(PowerJump);
-
-        return true;
+        return false;
     }
 }

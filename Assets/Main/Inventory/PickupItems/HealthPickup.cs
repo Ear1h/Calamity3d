@@ -13,7 +13,7 @@ public class HealthItem: MainInventory
 
     private int PrevHealth;
 
-    public override string StringMessage()
+    protected override string StringMessage()
     {
         if (PrevHealth < LowMessage.LowHealth)
         {
@@ -26,6 +26,7 @@ public class HealthItem: MainInventory
 
         return base.StringMessage();
     }
+
     public override bool TryPickup(Actor toucher, bool pickup = false)
     {
         PlayerPawn player = toucher as PlayerPawn;

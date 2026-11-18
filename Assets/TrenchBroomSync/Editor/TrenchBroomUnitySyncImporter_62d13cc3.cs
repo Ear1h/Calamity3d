@@ -8,16 +8,28 @@ public static class TrenchBroomUnitySyncImporter_62d13cc3
 {
     private const string Prefab = "Assets/TrenchBroomSync/Prefabs/TrenchBroomMap.prefab";
 
-    private const float PrefabScale = 0.1f;
+    private const float PrefabScale = 0.0001f;
 
     private static readonly string[] Models = new string[]
     {
         "Assets/TrenchBroomSync/Models/brush_0001.obj",
+        "Assets/TrenchBroomSync/Models/brush_0002.obj",
+        "Assets/TrenchBroomSync/Models/brush_0003.obj",
+        "Assets/TrenchBroomSync/Models/brush_0004.obj",
+        "Assets/TrenchBroomSync/Models/brush_0005.obj",
+        "Assets/TrenchBroomSync/Models/brush_0006.obj",
+        "Assets/TrenchBroomSync/Models/brush_0007.obj",
     };
 
     private static readonly string[] ObjectNames = new string[]
     {
         "brush_0001",
+        "brush_0002",
+        "brush_0003",
+        "brush_0004",
+        "brush_0005",
+        "brush_0006",
+        "brush_0007",
     };
 
     private static readonly string[] MaterialNames = new string[]

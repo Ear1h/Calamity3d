@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
-using static MainInventory;
 
-public class TriggerCore: MonoBehaviour
+public class TriggerCore: Thinker
 {
     [Flags]
     public enum TriggerFlagsPublic
@@ -14,16 +13,27 @@ public class TriggerCore: MonoBehaviour
 
     [SerializeField] protected TriggerFlagsPublic flags;
 
-    virtual protected bool CanTouchTrigger(Actor toucher)
+    protected bool TriggerEnabled;
+    protected virtual void Awake()
     {
-        if (flags.HasFlag(TriggerFlagsPublic.StartOff))
-        {
-            return false;
-        }
-        return true;
+        TriggerEnabled = !flags.HasFlag(TriggerFlagsPublic.StartOff);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void Start()
+    {
+        Use += TriggerUse;
+    }
+
+    protected virtual void TriggerUse(Thinker self, Thinker other, Thinker activator)
+    {
+        TriggerEnabled = (!TriggerEnabled);
+    }
+    virtual protected bool CanTouchTrigger(Actor toucher)
+    {
+        return TriggerEnabled && toucher != null;
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         Actor actor = other.GetComponent<Actor>();
         if (!CanTouchTrigger(actor))
@@ -33,7 +43,7 @@ public class TriggerCore: MonoBehaviour
         // If True && Has flag Once, destroy then
         if (flags.HasFlag(TriggerFlagsPublic.Once)) 
         {
-            Destroy(gameObject);
+            FreeEdict(this);
         }
     }
 }
